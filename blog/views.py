@@ -27,7 +27,7 @@ def new_post(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             title= request.POST['title']
-            text= request.POST['text']
+            text= request.POST['text']            
             author=request.user 
             date=datetime.now()
             new_post= Post.objects.create (
@@ -36,6 +36,8 @@ def new_post(request):
                 date=date,
                 author=author,
             )
+            if 'show' in request.POST:
+                new_post.show = True                
             new_post.save()
             return redirect('post_details', pk=new_post.pk)
     
