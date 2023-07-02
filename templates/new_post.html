@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            title:
+            <input type="text" name="title">
+        </label>
+        <label>
+            text:
+            <input type="text" name="text">
+        </label>
+        <label>
+            show:
+            <input type="checkbox" name="show">
+        </label>
+        <input type="submit" value="send">
+    </form>
+
+
+</body>
+
+</html>
