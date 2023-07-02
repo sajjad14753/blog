@@ -46,3 +46,8 @@ def new_post(request):
     else:
         return redirect('homepage')
 
+def my_posts(request):
+    if request.user.is_authenticated:
+        return render (request,'all_myposts.html', {'posts': Post.objects.filter(author=request.user)})
+    else:
+        raise Http404
